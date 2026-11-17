@@ -60,7 +60,13 @@ mysql+aiomysql://用户名:密码@主机:3306/库名?charset=utf8mb4
 注意：SQLAlchemy 不会自动创建数据库，需要先手动建库：
 
 ```sql
-CREATE DATABASE toutiao CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE news_app CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+项目已内置建表与初始化数据脚本 `toutiao_backend/sql/news_app.sql`，可直接导入（会创建 `news_app` 库、8 张表、8 个分类及示例新闻）：
+
+```bash
+mysql -u root -p < toutiao_backend/sql/news_app.sql
 ```
 
 `main.py` 的 `lifespan` 会在启动时自动建表，仅适合开发阶段；上线前请改用 Alembic 迁移。

@@ -18,7 +18,7 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    database_url: str = "mysql+aiomysql://root:@localhost:3306/toutiao?charset=utf8mb4"
+    database_url: str = "mysql+aiomysql://root:@localhost:3306/news_app?charset=utf8mb4"
 
 
 settings = Settings()

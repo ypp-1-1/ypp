@@ -19,11 +19,8 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="头条项目 API", version="0.1.0", lifespan=lifespan)
 
-# 在这里注册你自己的路由，例如：
-# from routers.news import router as news_router
-# app.include_router(news_router, prefix="/api")
+# 在这里注册你自己的路由
+from routers.news import router as news_router
+app.include_router(news_router)
 
 
-@app.get("/", tags=["健康检查"])
-async def health():
-    return {"status": "ok"}
